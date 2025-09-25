@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: profile
+  datasource:
+    url: "${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/example_db}"
+    username: "${SPRING_DATASOURCE_USERNAME:postgres}"
+    password: "${SPRING_DATASOURCE_PASSWORD:1}"
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: true
+  profiles:
+    active: "dev"
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+server:
+  port: 7073
+  url: "http://localhost:${server.port}"
+accounts:
+  message: "Card server message 1234"
